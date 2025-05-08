@@ -26,8 +26,6 @@ export class ClientSecureKeyExchange {
       await this.generateClientKeys();
     }
 
-    if (!this.cryptoKeyPair) throw new Error("Failed to generate client keys");
-
     const publicKey = await window.crypto.subtle.exportKey(
       "raw",
       this.cryptoKeyPair!.publicKey
